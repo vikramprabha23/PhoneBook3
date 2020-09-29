@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+function deleteConfirm(){
+		return confirm("r u sure u want to delete");	
+}
+</script>
+</head>
+<body>
+<a th:href="@{/}">Add Contact</a>
+<h1>List of contacts</h1>
+<b><span th:text="${msg}"></span></b>
+<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>PhNumber</th>
+			<th>Action</th>
+		</tr>
+		<tr th:each=ob:${list}>
+			<td th:text=${ob.cname}></td>
+			<td th:text=${ob.email}></td>
+			<td th:text=${ob.cnumber}></td>
+			<td colspan="2"><a th:href="@{editContact/{cid}(cid=${ob.cid})}">Edit</a>
+											<a th:href="@{deleteContact/{cid}(cid=${ob.cid})}" onClick="return deleteConfirm()">Delete</a>
+			</td>
+		</tr>
+</table>
+</body>
+</html>

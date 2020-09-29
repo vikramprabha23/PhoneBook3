@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>hello phone book application</h1>
+<form action="#" th:action="@{/submit}" th:object="${contact}" method="post">
+	<input type="hidden" th:field="*{cid}" />
+    <label for="name">Name</label>
+    <input type="text" th:field="*{cname}" id="name" placeholder="Name">
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+      <label>Number</label>
+    <input type="text" th:field="*{cnumber}" id="cnumber" placeholder="number">
+    <input type="submit" value="Submit"> 
+</form>
+<a th:href="@{/showContacts}">Show</a>
+<b><span th:text="${succMsg}"></span></b>
+<b><span th:text="${errorMsg}"></span></b>
+</body>
+</html>
